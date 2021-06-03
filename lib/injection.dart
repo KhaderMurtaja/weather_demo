@@ -1,6 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weather_demo/core/constant.dart';
+import 'package:weather_demo/data/http_helper/http_helper.dart';
+import 'package:weather_demo/data/http_helper/iIhttp_helper.dart';
+import 'package:weather_demo/data/repository/irepository.dart';
+import 'package:weather_demo/data/repository/repository.dart';
 
 GetIt sl = GetIt.instance;
 
@@ -19,4 +23,7 @@ Future initGetIt() async {
       ),
     ),
   );
+
+  sl.registerLazySingleton<IHttpHelper>(() => HttpHelper(sl()));
+  sl.registerLazySingleton<IRepository>(() => Repository());
 }
