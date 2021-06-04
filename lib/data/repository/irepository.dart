@@ -6,5 +6,8 @@ abstract class IRepository {
     String cityName,
   );
 
-  Future<LocationWeatherModel> getLocationWeather();
+  Future<LocationWeatherModel> getLocationWeather(
+    double lat,
+    double long,
+  );
 }

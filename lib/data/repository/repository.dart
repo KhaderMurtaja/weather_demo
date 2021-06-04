@@ -1,4 +1,3 @@
-import 'package:geolocator/geolocator.dart';
 import 'package:weather_demo/data/http_helper/iIhttp_helper.dart';
 import 'package:weather_demo/data/repository/irepository.dart';
 import 'package:weather_demo/model/city_weather/city_weather_model.dart';
@@ -18,11 +17,10 @@ class Repository implements IRepository {
   }
 
   @override
-  Future<LocationWeatherModel> getLocationWeather() async {
-    Position position = await _iHttpHelper.getLocation();
-    double lat = position.latitude;
-    double long = position.longitude;
-
+  Future<LocationWeatherModel> getLocationWeather(
+    double lat,
+    double long,
+  ) async {
     final locationWeather = await _iHttpHelper.getLocationWeather(
       lat,
       long,
