@@ -1,7 +1,6 @@
 library location_state;
 
 import 'package:built_value/built_value.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:weather_demo/model/location_weather/location_weather_model.dart';
 
 part 'location_state.g.dart';
