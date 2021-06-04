@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:weather_demo/core/constant.dart';
 import 'package:weather_demo/core/error.dart';
 import 'package:weather_demo/data/http_helper/iIhttp_helper.dart';
@@ -44,19 +43,6 @@ class HttpHelper extends IHttpHelper {
       } else {
         throw NetworkException();
       }
-    } catch (e) {
-      throw NetworkException();
-    }
-  }
-
-  // Get Current Location
-  @override
-  Future<Position> getLocation() async {
-    try {
-      Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.medium,
-      );
-      return position;
     } catch (e) {
       throw NetworkException();
     }
