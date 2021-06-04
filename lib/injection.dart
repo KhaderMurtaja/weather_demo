@@ -5,6 +5,8 @@ import 'package:weather_demo/data/http_helper/http_helper.dart';
 import 'package:weather_demo/data/http_helper/iIhttp_helper.dart';
 import 'package:weather_demo/data/repository/irepository.dart';
 import 'package:weather_demo/data/repository/repository.dart';
+import 'package:weather_demo/screens/location_weather/bloc/location_bloc.dart';
+import 'package:weather_demo/screens/location_weather/bloc/location_state.dart';
 
 GetIt sl = GetIt.instance;
 
@@ -26,4 +28,6 @@ Future initGetIt() async {
 
   sl.registerLazySingleton<IHttpHelper>(() => HttpHelper(sl()));
   sl.registerLazySingleton<IRepository>(() => Repository());
+
+  sl.registerFactory(() => LocationBloc(LocationState.initail()));
 }
