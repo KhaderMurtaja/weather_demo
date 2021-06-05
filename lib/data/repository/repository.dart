@@ -4,7 +4,11 @@ import 'package:weather_demo/model/city_weather/city_weather_model.dart';
 import 'package:weather_demo/model/location_weather/location_weather_model.dart';
 
 class Repository implements IRepository {
-  late IHttpHelper _iHttpHelper;
+  IHttpHelper _iHttpHelper;
+
+  Repository(
+    this._iHttpHelper,
+  );
 
   @override
   Future<CityWeatherModel> getCityWeather(
@@ -18,8 +22,8 @@ class Repository implements IRepository {
 
   @override
   Future<LocationWeatherModel> getLocationWeather(
-    double lat,
-    double long,
+    double? lat,
+    double? long,
   ) async {
     final locationWeather = await _iHttpHelper.getLocationWeather(
       lat,

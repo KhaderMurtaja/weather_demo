@@ -7,7 +7,7 @@ abstract class IRepository {
   );
 
   Future<LocationWeatherModel> getLocationWeather(
-    double lat,
-    double long,
+    double? lat,
+    double? long,
   );
 }

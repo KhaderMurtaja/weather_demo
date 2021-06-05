@@ -10,7 +10,7 @@ import 'package:weather_demo/model/city_weather/city_weather_model.dart';
 import 'package:weather_demo/model/location_weather/location_weather_model.dart';
 
 class HttpHelper extends IHttpHelper {
-  late Dio _dio;
+  final Dio _dio;
   var cookieJar = CookieJar();
 
   HttpHelper(this._dio) {
@@ -52,10 +52,11 @@ class HttpHelper extends IHttpHelper {
 
   @override
   Future<LocationWeatherModel> getLocationWeather(
-    double latitude, // 31.523724
-    double longitude, // 34.4459185
+    double? latitude, // 31.523724
+    double? longitude, // 34.4459185
   ) async {
     try {
+      print('*-*-*-*- From HttpHelper LAT => $latitude');
       final response = await _dio.get(
         '?lat=$latitude&lon=$longitude&appid=$BaseUrlApiKey&units=metric',
       );

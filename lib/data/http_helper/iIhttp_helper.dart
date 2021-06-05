@@ -7,7 +7,7 @@ abstract class IHttpHelper {
   );
 
   Future<LocationWeatherModel> getLocationWeather(
-    double lat,
-    double long,
+    double? lat,
+    double? long,
   );
 }
