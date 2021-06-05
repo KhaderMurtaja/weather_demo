@@ -19,7 +19,7 @@ class YourLocationText extends StatelessWidget {
             'Your Location Now',
             style: TextStyle(
               color: Color(0xFF869DA4),
-              fontSize: 15.0,
+              fontSize: 16.0,
               fontWeight: FontWeight.bold,
             ),
           ),

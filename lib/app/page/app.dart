@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_demo/screens/location_weather/page/location_weather.dart';
+import 'package:weather_demo/screens/main_tabs/page/main_tabs.dart';
 
 class App extends StatefulWidget {
   const App({
@@ -14,8 +14,9 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Color(0xFF223644),
       debugShowCheckedModeBanner: false,
-      home: LocationWeather(),
+      home: MainTabs(),
     );
   }
 }
