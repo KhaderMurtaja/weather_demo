@@ -4,11 +4,9 @@ import 'package:weather_demo/screens/location_weather/bloc/location_event.dart';
 import 'package:weather_demo/screens/location_weather/bloc/location_state.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
-  late IRepository _iRepository;
+  IRepository _iRepository;
 
-  LocationBloc(
-    LocationState initialState,
-  ) : super(initialState);
+  LocationBloc(this._iRepository) : super(LocationState.initail());
 
   @override
   Stream<LocationState> mapEventToState(

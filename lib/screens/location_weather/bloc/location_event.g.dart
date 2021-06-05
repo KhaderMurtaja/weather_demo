@@ -8,18 +8,15 @@ part of location_event;
 
 class _$GetLocationWeather extends GetLocationWeather {
   @override
-  final double lat;
+  final double? lat;
   @override
-  final double long;
+  final double? long;
 
   factory _$GetLocationWeather(
           [void Function(GetLocationWeatherBuilder)? updates]) =>
       (new GetLocationWeatherBuilder()..update(updates)).build();
 
-  _$GetLocationWeather._({required this.lat, required this.long}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(lat, 'GetLocationWeather', 'lat');
-    BuiltValueNullFieldError.checkNotNull(long, 'GetLocationWeather', 'long');
-  }
+  _$GetLocationWeather._({this.lat, this.long}) : super._();
 
   @override
   GetLocationWeather rebuild(
@@ -89,12 +86,7 @@ class GetLocationWeatherBuilder
 
   @override
   _$GetLocationWeather build() {
-    final _$result = _$v ??
-        new _$GetLocationWeather._(
-            lat: BuiltValueNullFieldError.checkNotNull(
-                lat, 'GetLocationWeather', 'lat'),
-            long: BuiltValueNullFieldError.checkNotNull(
-                long, 'GetLocationWeather', 'long'));
+    final _$result = _$v ?? new _$GetLocationWeather._(lat: lat, long: long);
     replace(_$result);
     return _$result;
   }

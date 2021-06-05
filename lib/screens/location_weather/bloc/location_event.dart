@@ -9,8 +9,8 @@ abstract class LocationEvent {}
 // Get Location Weather Event
 abstract class GetLocationWeather extends LocationEvent
     implements Built<GetLocationWeather, GetLocationWeatherBuilder> {
-  double get lat;
-  double get long;
+  double? get lat;
+  double? get long;
   GetLocationWeather._();
 
   factory GetLocationWeather([
