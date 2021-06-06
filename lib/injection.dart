@@ -5,6 +5,7 @@ import 'package:weather_demo/data/http_helper/http_helper.dart';
 import 'package:weather_demo/data/http_helper/iIhttp_helper.dart';
 import 'package:weather_demo/data/repository/irepository.dart';
 import 'package:weather_demo/data/repository/repository.dart';
+import 'package:weather_demo/screens/city_weather/bloc/city_weather_bloc.dart';
 import 'package:weather_demo/screens/location_weather/bloc/location_bloc.dart';
 import 'package:weather_demo/screens/main_tabs/bloc/main_tabs_bloc.dart';
 import 'package:weather_demo/screens/main_tabs/bloc/main_tabs_state.dart';
@@ -32,4 +33,5 @@ Future initGetIt() async {
 
   sl.registerFactory(() => MainBloc(MainState.initail()));
   sl.registerFactory(() => LocationBloc(sl<IRepository>()));
+  sl.registerFactory(() => CityWeatherBloc(sl<IRepository>()));
 }
