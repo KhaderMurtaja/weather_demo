@@ -37,28 +37,32 @@ class _MainTabsState extends State<MainTabs> {
           error(state.error);
           return Scaffold(
             backgroundColor: Color(0xFF223644),
+            resizeToAvoidBottomInset: false,
             body: SafeArea(
-              child: Builder(
-                builder: (context) {
-                  switch (_currentIndex) {
-                    case 0:
-                      return (state.isLoading == true)
-                          ? Loader()
-                          : (state.lat == null || state.long == null)
-                              ? Container()
-                              : LocationWeather(
-                                  lat: state.lat,
-                                  long: state.long,
-                                );
-                    case 1:
-                      return CityWeather();
-                    default:
-                      return LocationWeather(
-                        lat: state.lat,
-                        long: state.long,
-                      );
-                  }
-                },
+              child: GestureDetector(
+                onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+                child: Builder(
+                  builder: (context) {
+                    switch (_currentIndex) {
+                      case 0:
+                        return (state.isLoading == true)
+                            ? Loader()
+                            : (state.lat == null || state.long == null)
+                                ? Container()
+                                : LocationWeather(
+                                    lat: state.lat,
+                                    long: state.long,
+                                  );
+                      case 1:
+                        return CityWeather();
+                      default:
+                        return LocationWeather(
+                          lat: state.lat,
+                          long: state.long,
+                        );
+                    }
+                  },
+                ),
               ),
             ),
             bottomNavigationBar: BottomNavyBar(

@@ -45,101 +45,111 @@ class _LocationWeatherState extends State<LocationWeather> {
           error(state.error);
           return Scaffold(
             backgroundColor: Color(0xFF223644),
+            resizeToAvoidBottomInset: false,
             body: SafeArea(
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.only(
-                  top: 40.0,
-                  bottom: 20.0,
-                ),
-                decoration: BoxDecoration(
-                  color: Color(0xFF223644),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        YourLocationText(),
-                        CityCountry(
-                          isLoading: state.isLoading,
-                          city: (state.locationWeather == null ||
-                                  state.locationWeather!.name == null)
-                              ? ''
-                              : state.locationWeather!.name,
-                          country: (state.locationWeather == null ||
-                                  state.locationWeather!.sys == null ||
-                                  state.locationWeather!.sys!.country == null)
-                              ? ''
-                              : state.locationWeather!.sys!.country,
-                        ),
-                      ],
-                    ),
-                    // main description
-                    Expanded(
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            MainDesc(
-                              main: (state.locationWeather == null ||
-                                      state.locationWeather!.weather == null ||
-                                      state.locationWeather!.weather![0].main ==
-                                          null)
-                                  ? ''
-                                  : state.locationWeather!.weather![0].main,
-                              isLoading: state.isLoading,
-                            ),
-                            Column(
-                              children: [
-                                Temp(
-                                  isLoading: state.isLoading,
-                                  temp: (state.locationWeather == null ||
-                                          state.locationWeather!.main == null ||
-                                          state.locationWeather!.main!.temp ==
-                                              null)
-                                      ? ''
-                                      : state.locationWeather!.main!.temp
-                                          .toString(),
-                                ),
-                                MoreInfo(
-                                  isLoading: state.isLoading,
-                                  windSpeed: (state.locationWeather == null ||
-                                          state.locationWeather!.wind == null ||
-                                          state.locationWeather!.wind!.speed ==
-                                              null)
-                                      ? ''
-                                      : state.locationWeather!.wind!.speed
-                                          .toString(),
-                                  humidity: (state.locationWeather == null ||
-                                          state.locationWeather!.main == null ||
-                                          state.locationWeather!.main!
-                                                  .humidity ==
-                                              null)
-                                      ? '°C'
-                                      : state.locationWeather!.main!.humidity
-                                          .toString(),
-                                  pressure: (state.locationWeather == null ||
-                                          state.locationWeather!.main == null ||
-                                          state.locationWeather!.main!
-                                                  .pressure ==
-                                              null)
-                                      ? '°C'
-                                      : state.locationWeather!.main!.pressure
-                                          .toString(),
-                                ),
-                              ],
-                            ),
-                          ],
+              child: GestureDetector(
+                onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+                child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.only(
+                    top: 40.0,
+                    bottom: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF223644),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          YourLocationText(),
+                          CityCountry(
+                            isLoading: state.isLoading,
+                            city: (state.locationWeather == null ||
+                                    state.locationWeather!.name == null)
+                                ? ''
+                                : state.locationWeather!.name,
+                            country: (state.locationWeather == null ||
+                                    state.locationWeather!.sys == null ||
+                                    state.locationWeather!.sys!.country == null)
+                                ? ''
+                                : state.locationWeather!.sys!.country,
+                          ),
+                        ],
+                      ),
+                      // main description
+                      Expanded(
+                        child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              MainDesc(
+                                main: (state.locationWeather == null ||
+                                        state.locationWeather!.weather ==
+                                            null ||
+                                        state.locationWeather!.weather![0]
+                                                .main ==
+                                            null)
+                                    ? ''
+                                    : state.locationWeather!.weather![0].main,
+                                isLoading: state.isLoading,
+                              ),
+                              Column(
+                                children: [
+                                  Temp(
+                                    isLoading: state.isLoading,
+                                    temp: (state.locationWeather == null ||
+                                            state.locationWeather!.main ==
+                                                null ||
+                                            state.locationWeather!.main!.temp ==
+                                                null)
+                                        ? ''
+                                        : state.locationWeather!.main!.temp
+                                            .toString(),
+                                  ),
+                                  MoreInfo(
+                                    isLoading: state.isLoading,
+                                    windSpeed: (state.locationWeather == null ||
+                                            state.locationWeather!.wind ==
+                                                null ||
+                                            state.locationWeather!.wind!
+                                                    .speed ==
+                                                null)
+                                        ? ''
+                                        : state.locationWeather!.wind!.speed
+                                            .toString(),
+                                    humidity: (state.locationWeather == null ||
+                                            state.locationWeather!.main ==
+                                                null ||
+                                            state.locationWeather!.main!
+                                                    .humidity ==
+                                                null)
+                                        ? '°C'
+                                        : state.locationWeather!.main!.humidity
+                                            .toString(),
+                                    pressure: (state.locationWeather == null ||
+                                            state.locationWeather!.main ==
+                                                null ||
+                                            state.locationWeather!.main!
+                                                    .pressure ==
+                                                null)
+                                        ? '°C'
+                                        : state.locationWeather!.main!.pressure
+                                            .toString(),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    // Main Temp
-                    // General Details
-                    GeneralDetails(),
-                  ],
+                      // General Details
+                      GeneralDetails(),
+                    ],
+                  ),
                 ),
               ),
             ),
