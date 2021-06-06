@@ -56,7 +56,6 @@ class HttpHelper extends IHttpHelper {
     double? longitude, // 34.4459185
   ) async {
     try {
-      print('*-*-*-*- From HttpHelper LAT => $latitude');
       final response = await _dio.get(
         '?lat=$latitude&lon=$longitude&appid=$BaseUrlApiKey&units=metric',
       );
